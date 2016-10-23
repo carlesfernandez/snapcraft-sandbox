@@ -1,0 +1,72 @@
+name: gnss-sdr-next
+version: 0.0.8
+summary: GNSS-SDR
+description: GNSS-SDR
+confinement: strict
+
+apps:
+
+    gnss-sdr:
+        command: environment gnss-sdr
+        plugs: [network, network-bind, home]
+
+    volk-gnsssdr-profile:
+        command: environment volk_gnsssdr_profile
+    
+    volk-gnsssdr-config-info:
+        command: environment volk_gnsssdr-config-info
+   
+    front-end-cal:
+        command: environment front-end-cal
+
+parts:
+    gnss-sdr:
+        plugin: cmake
+        source: https://github.com/gnss-sdr/gnss-sdr.git
+        source-branch: next
+        configflags:
+            - -DENABLE_OSMOSDR=ON
+            - -DENABLE_PACKAGING=ON
+        after: [environment]
+        build-packages:
+            - git
+            - libboost-dev
+            - libboost-date-time-dev
+            - libboost-system-dev
+            - libboost-filesystem-dev
+            - libboost-thread-dev
+            - libboost-serialization-dev
+            - libboost-program-options-dev
+            - libboost-test-dev
+            - liblog4cpp5-dev
+            - libuhd-dev
+            - libblas-dev
+            - liblapack-dev
+            - libarmadillo-dev
+            - libgflags-dev
+            - libgoogle-glog-dev
+            - libgnutls28-dev
+            - libgtest-dev
+            - gnuradio-dev
+            - gr-osmosdr
+
+    environment:
+        plugin: dump
+        source: .
+        organize:
+            environment.sh: bin/environment
+            wx.pth: usr/lib/wx/python/wx.pth
+        stage-packages:
+            - python
+            - python-opengl
+            - python-cheetah
+            - python-mako
+            - python-numpy
+            - python-scipy
+            - python-gtk2
+            - python-lxml
+            - python-wxgtk3.0
+            - python-wxversion
+            - python-zmq
+            - python-qwt5-qt4
+            - swig

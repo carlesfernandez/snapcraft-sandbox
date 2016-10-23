@@ -1,0 +1,145 @@
+name: gnss-sdr-grc
+version: 0.0.8
+summary: GNSS-SDR + Minimal version of GNU Radio + GRC
+description: GNSS-SDR, mini GNU Radio, gr-osmosdr and uhd drivers, GRC
+confinement: strict
+
+apps:
+
+    gnss-sdr:
+        command: environment gnss-sdr
+        plugs: [network, network-bind, home]
+
+    volk-gnsssdr-profile:
+        command: environment volk_gnsssdr_profile
+    
+    volk-gnsssdr-config-info:
+        command: environment volk_gnsssdr-config-info
+   
+    front-end-cal:
+        command: environment front-end-cal
+
+    gnuradio-companion:
+        command: environment desktop-launch gnuradio-companion
+        plugs: [network, network-bind, x11, opengl, home]
+
+    gnuradio-config-info:
+        command: environment gnuradio-config-info
+
+    volk-config-info:
+        command: environment volk-config-info
+
+    volk-profile:
+        command: environment volk_profile
+
+parts:
+    gnss-sdr:
+        plugin: cmake
+        source: https://github.com/gnss-sdr/gnss-sdr.git
+        source-branch: next
+        configflags:
+            - -DENABLE_OSMOSDR=ON
+            - -DENABLE_PACKAGING=ON
+        after: [environment, gnuradio, grosmosdr]
+        build-packages:
+            - git
+            - libboost-dev
+            - libboost-date-time-dev
+            - libboost-system-dev
+            - libboost-filesystem-dev
+            - libboost-thread-dev
+            - libboost-serialization-dev
+            - libboost-program-options-dev
+            - libboost-test-dev
+            - liblog4cpp5-dev
+            - libuhd-dev
+            - libblas-dev
+            - liblapack-dev
+            - libarmadillo-dev
+            - libgflags-dev
+            - libgoogle-glog-dev
+            - libgnutls28-dev
+            - libgtest-dev
+
+
+    volk:
+        plugin: cmake
+        source: https://github.com/pothosware/volk.git
+        source-branch: volk_snaps
+        build-packages: [libboost-all-dev, liborc-0.4-dev]
+        after: [environment]
+
+
+    gnuradio:
+        plugin: cmake
+        source: https://github.com/pothosware/gnuradio.git
+        source-branch: gr_snaps
+        build-packages:
+            - python-dev
+            - libboost-all-dev
+            - libfftw3-dev
+            - libfontconfig1-dev
+            - liblog4cpp5-dev
+            - libqt4-dev
+            - libqwt5-qt4-dev
+            - libxi-dev
+            - libxrender-dev
+            - libuhd-dev
+        configflags:
+            - -DENABLE_TESTING=OFF
+            - -DENABLE_INTERNAL_VOLK=OFF
+            - -DENABLE_DOXYGEN=OFF
+            - -DENABLE_SPHINX=OFF
+            - -DENABLE_GR_UHD=ON
+            - -DENABLE_GR_QTGUI=OFF
+            - -DENABLE_GR_DTV=OFF
+            - -DENABLE_GNURADIO_RUNTIME=ON
+            - -DENABLE_GR_ANALOG=ON
+            - -DENABLE_GR_FILTER=ON
+            - -DENABLE_GR_BLOCKS=ON
+            - -DENABLE_GR_TRELLIS=OFF
+            - -DENABLE_GR_VOCODER=OFF
+            - -DENABLE_GR_WAVELET=OFF
+            - -DENABLE_GR_VIDEO_SDL=OFF
+            - -DENABLE_GR_NOAA=OFF
+            - -DENABLE_GR_PAGER=OFF
+            - -DENABLE_GR_COMEDI=OFF
+            - -DENABLE_GR_ATSC=OFF
+            - -DENABLE_GR_AUDIO=OFF
+            - -DENABLE_GR_FEC=OFF
+            - -DENABLE_GR_ZEROMQ=OFF
+            - -DENABLE_GR_CHANNELS=OFF
+            - -DENABLE_GR_DIGITAL=OFF
+        after: [desktop-gtk3, volk, environment]
+
+
+    grosmosdr:
+        plugin: cmake
+        source: git://git.osmocom.org/gr-osmosdr
+        build-packages:
+            - libboost-all-dev
+            - python
+            - python-cheetah
+            - swig
+        after: [gnuradio, environment]
+
+    environment:
+        plugin: dump
+        source: .
+        organize:
+            environment.sh: bin/environment
+            wx.pth: usr/lib/wx/python/wx.pth
+        stage-packages:
+            - python
+            - python-opengl
+            - python-cheetah
+            - python-mako
+            - python-numpy
+            - python-scipy
+            - python-gtk2
+            - python-lxml
+            - python-wxgtk3.0
+            - python-wxversion
+            - python-zmq
+            - python-qwt5-qt4
+            - swig
