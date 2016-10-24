@@ -12,7 +12,7 @@ This project creates a working snap of the current 'next' branch of GNSS-SDR.
 You can start using GNSS-SDR as this:
 
 ```
-$ gnss-sdr-next-volk_gnsssdr_profile
+$ gnss-sdr-next.volk_gnsssdr_profile
 $ gnss-sdr-next.gnss-sdr --config_file=./my_gnss_receiver.conf
 ```
 
