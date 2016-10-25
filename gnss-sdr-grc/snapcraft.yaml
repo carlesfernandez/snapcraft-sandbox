@@ -61,7 +61,6 @@ parts:
             - libgnutls28-dev
             - libgtest-dev
 
-
     volk:
         plugin: cmake
         source: https://github.com/pothosware/volk.git
@@ -110,6 +109,9 @@ parts:
             - -DENABLE_GR_ZEROMQ=OFF
             - -DENABLE_GR_CHANNELS=OFF
             - -DENABLE_GR_DIGITAL=OFF
+            - -DENABLE_GR_FCD=ON
+            - -DENABLE_GR_AUDIO=ON
+
         after: [desktop-gtk3, volk, environment]
 
 
@@ -121,6 +123,10 @@ parts:
             - python
             - python-cheetah
             - swig
+            - libhackrf-dev
+            - librtlsdr-dev
+            - libusb-1.0-0-dev
+            - libosmosdr-dev
         after: [gnuradio, environment]
 
     environment:

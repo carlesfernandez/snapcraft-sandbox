@@ -6,5 +6,7 @@ export VOLK_CONFIGPATH=$SNAP_USER_COMMON
 export VOLK_PREFIX=$SNAP
 export GR_PREFIX=$SNAP
 export PYTHONPATH=$SNAP/lib/python2.7/dist-packages/
+export SNAP=$SNAP
+export gnuradio_install_prefix=$SNAP
 
 $@
