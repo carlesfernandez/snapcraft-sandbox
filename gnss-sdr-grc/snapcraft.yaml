@@ -1,17 +1,17 @@
 name: gnss-sdr-grc
 version: 0.0.8
 summary: GNSS-SDR + Minimal version of GNU Radio + GRC
-description: GNSS-SDR, mini GNU Radio, gr-osmosdr and uhd drivers, GRC
+description: GNSS-SDR, mini GNU Radio, gr-osmosdr and uhd drivers, GNU Radio Companion
 confinement: strict
 
 apps:
-
     gnss-sdr:
         command: environment gnss-sdr
         plugs: [network, network-bind, home]
 
     volk-gnsssdr-profile:
         command: environment volk_gnsssdr_profile
+        plugs: [home]
     
     volk-gnsssdr-config-info:
         command: environment volk_gnsssdr-config-info
@@ -31,6 +31,7 @@ apps:
 
     volk-profile:
         command: environment volk_profile
+        plugs: [home]
 
 parts:
     gnss-sdr:
