@@ -5,7 +5,13 @@ This project creates a working snap of the current 'next' branch of GNSS-SDR.
 
 ## How to build the package
 
-Just go to this directory and type:
+Install snapcraft (available on Ubuntu 16.04 LTS and above):
+
+```
+$ sudo apt install snapcraft
+```
+
+Then , just go to this directory and type:
 
 ```
 $ snapcraft
@@ -13,6 +19,8 @@ $ snapcraft
 
 
 ## How to install the snap package from the Ubuntu Store
+
+A snap package can be installed in a wide range of Linux distributions, such as Arch Linux, CentOS, Debian, Fedora, Gentoo Linux, OpenSuse, OpenWrt, Red Hat Enterprise Linux and Yocto/OpenEmbedded. In any of those distributions:
 
 * [Install snapd](http://snapcraft.io/docs/core/install)
 * ```$ sudo snap install gnss-sdr-next```
