@@ -12,7 +12,7 @@ Pick one of the directories, each contains a snapcraft project file:
 
 ```
 $ cd <directory>
-``
+```
 
 Simply type ```snapcraft``` to download all of the dependencies and to build the snap:
 
