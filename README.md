@@ -2,28 +2,43 @@
 
 ## Building a snap
 
+Install ```snapcraft``` (available on Ubuntu 16.04 LTS and above):
+
 ```
-#pick one of the directories, each contains a snapcraft project file
-cd <directory>
+$ sudo apt install snapcraft
+```
 
-#simply type snapcraft to download all of the dependencies and build
-snapcraft
+Pick one of the directories, each contains a snapcraft project file:
 
-#the output is a .snap
-ls *.snap
+```
+$ cd <directory>
+``
+
+Simply type ```snapcraft``` to download all of the dependencies and to build the snap:
+
+```
+$ snapcraft
+```
+
+The output is a ```.snap``` file.
+
+```
+$ ls *.snap
 ```
 
 ## Install a snap
 
-Install the .snap that we just built with snapcraft.
-The snap will be unpacked into /snap/<package-name>/current.
-Any executables in the snap will be available in the $PATH
-and in the /snap/bin directory as ``<package-name>.<executable-name>``
+This is an unsigned package, so use ```--force-dangerous```
 
 ```
-#This is an unsigned package, use --force-dangerous
 sudo snap install --force-dangerous <package-name>.snap
 ```
+
+This installs the ```.snap``` file that we just built with snapcraft.
+The snap will be unpacked into ```/snap/<package-name>/current```.
+Any executables in the snap will be available in the ```$PATH```
+and in the ```/snap/bin``` directory as ``<package-name>.<executable-name>``
+
 
 ## Remove a snap
 
