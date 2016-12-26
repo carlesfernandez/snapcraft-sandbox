@@ -60,6 +60,7 @@ parts:
             - python-opengl
             - python-cheetah
             - python-mako
+            - python-six
             - python-numpy
             - python-scipy
             - python-gtk2
