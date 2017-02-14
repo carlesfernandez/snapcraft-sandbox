@@ -1,5 +1,5 @@
 name: gnss-sdr-next
-version: 0.0.8
+version: 0.0.9
 summary: GNSS-SDR, 'next' branch
 description: GNSS-SDR, an open source Global Navigation Satellite Systems software-defined receiver.
 confinement: strict
@@ -11,10 +11,10 @@ apps:
 
     volk-gnsssdr-profile:
         command: environment volk_gnsssdr_profile
-    
+
     volk-gnsssdr-config-info:
         command: environment volk_gnsssdr-config-info
-   
+
     front-end-cal:
         command: environment front-end-cal
 
