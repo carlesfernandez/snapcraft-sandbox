@@ -41,6 +41,7 @@ parts:
         configflags:
             - -DENABLE_OSMOSDR=ON
             - -DENABLE_PACKAGING=ON
+            - -DENABLE_UNIT_TESTING=OFF
         after: [environment, gnuradio, grosmosdr]
         build-packages:
             - git
