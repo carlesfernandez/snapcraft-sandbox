@@ -63,6 +63,7 @@ parts:
             - libgoogle-glog-dev
             - libgnutls28-dev
             - libgtest-dev
+            - libmatio-dev
 
     volk:
         plugin: cmake
