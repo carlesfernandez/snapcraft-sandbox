@@ -49,6 +49,7 @@ parts:
             - libgtest-dev
             - gnuradio-dev
             - gr-osmosdr
+            - libmatio-dev
 
     environment:
         plugin: dump
