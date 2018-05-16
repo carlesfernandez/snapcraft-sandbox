@@ -40,6 +40,7 @@ parts:
         source-branch: next
         configflags:
             - -DENABLE_OSMOSDR=ON
+            - -ENABLE_RAW_UDP=ON
             - -DENABLE_PACKAGING=ON
             - -DENABLE_UNIT_TESTING=OFF
         after: [environment, gnuradio, grosmosdr]
@@ -64,6 +65,7 @@ parts:
             - libgnutls28-dev
             - libgtest-dev
             - libmatio-dev
+            - libpcap-dev
 
     volk:
         plugin: cmake
