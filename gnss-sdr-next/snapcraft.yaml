@@ -25,6 +25,7 @@ parts:
         source-branch: next
         configflags:
             - -DENABLE_OSMOSDR=ON
+            - -ENABLE_RAW_UDP=ON
             - -DENABLE_PACKAGING=ON
             - -DENABLE_UNIT_TESTING=OFF
         after: [environment]
@@ -50,6 +51,7 @@ parts:
             - gnuradio-dev
             - gr-osmosdr
             - libmatio-dev
+            - libpcap-dev
 
     environment:
         plugin: dump
