@@ -52,6 +52,7 @@ parts:
             - gr-osmosdr
             - libmatio-dev
             - libpcap-dev
+            - libpugixml-dev
 
     environment:
         plugin: dump
