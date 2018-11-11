@@ -66,6 +66,7 @@ parts:
             - libgtest-dev
             - libmatio-dev
             - libpcap-dev
+            - libpugixml-dev
 
     volk:
         plugin: cmake
