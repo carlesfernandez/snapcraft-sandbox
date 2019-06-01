@@ -1,5 +1,5 @@
 name: gnss-sdr-next
-version: 0.0.9
+version: 0.0.10
 summary: GNSS-SDR, 'next' branch
 description: GNSS-SDR, an open source Global Navigation Satellite Systems software-defined receiver.
 confinement: strict
@@ -25,7 +25,6 @@ parts:
         source-branch: next
         configflags:
             - -DENABLE_OSMOSDR=ON
-            - -ENABLE_RAW_UDP=ON
             - -DENABLE_PACKAGING=ON
             - -DENABLE_UNIT_TESTING=OFF
         after: [environment]
@@ -38,7 +37,6 @@ parts:
             - libboost-thread-dev
             - libboost-serialization-dev
             - libboost-program-options-dev
-            - libboost-test-dev
             - liblog4cpp5-dev
             - libuhd-dev
             - libblas-dev
@@ -51,7 +49,32 @@ parts:
             - gnuradio-dev
             - gr-osmosdr
             - libmatio-dev
-            - libpcap-dev
+            - libpugixml-dev
+            - libtool
+            - autoconf
+            - automake
+            - unzip
+        stage-packages:
+            - git
+            - libboost-dev
+            - libboost-date-time-dev
+            - libboost-system-dev
+            - libboost-filesystem-dev
+            - libboost-thread-dev
+            - libboost-serialization-dev
+            - libboost-program-options-dev
+            - liblog4cpp5-dev
+            - libuhd-dev
+            - libblas-dev
+            - liblapack-dev
+            - libarmadillo-dev
+            - libgflags-dev
+            - libgoogle-glog-dev
+            - libgnutls28-dev
+            - libgtest-dev
+            - gnuradio-dev
+            - gr-osmosdr
+            - libmatio-dev
             - libpugixml-dev
 
     environment:
@@ -61,17 +84,11 @@ parts:
             environment.sh: bin/environment
             wx.pth: usr/lib/wx/python/wx.pth
         stage-packages:
-            - python
-            - python-opengl
-            - python-cheetah
+            - libbz2-1.0
+            - libncursesw5
+            - libtinfo5
+            - libdb5.3
             - python-mako
             - python-six
-            - python-numpy
-            - python-scipy
-            - python-gtk2
-            - python-lxml
-            - python-wxgtk3.0
-            - python-wxversion
-            - python-zmq
-            - python-qwt5-qt4
-            - swig
+            - try:
+                - libzadc1
