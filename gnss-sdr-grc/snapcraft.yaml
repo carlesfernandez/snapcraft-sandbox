@@ -67,6 +67,8 @@ parts:
             - libmatio-dev
             - libpcap-dev
             - libpugixml-dev
+            - libtool
+            - autotools
 
     volk:
         plugin: cmake
@@ -91,6 +93,28 @@ parts:
             - libxi-dev
             - libxrender-dev
             - libuhd-dev
+        stage-packages:
+            - git
+            - libboost-dev
+            - libboost-date-time-dev
+            - libboost-system-dev
+            - libboost-filesystem-dev
+            - libboost-thread-dev
+            - libboost-serialization-dev
+            - libboost-program-options-dev
+            - liblog4cpp5-dev
+            - libuhd-dev
+            - libblas-dev
+            - liblapack-dev
+            - libarmadillo-dev
+            - libgflags-dev
+            - libgoogle-glog-dev
+            - libgnutls28-dev
+            - libgtest-dev
+            - gnuradio-dev
+            - gr-osmosdr
+            - libmatio-dev
+            - libpugixml-dev
         configflags:
             - -DENABLE_TESTING=OFF
             - -DENABLE_INTERNAL_VOLK=OFF
@@ -157,3 +181,9 @@ parts:
             - python-zmq
             - python-qwt5-qt4
             - swig
+            - libbz2-1.0
+            - libncursesw5
+            - libtinfo5
+            - libdb5.3
+            - try:
+                - libzadc1
