@@ -11,12 +11,19 @@ apps:
 
     volk-gnsssdr-profile:
         command: environment volk_gnsssdr_profile
+        plugs: [home]
 
     volk-gnsssdr-config-info:
         command: environment volk_gnsssdr-config-info
+        plugs: [home]
+
+    volk-profile:
+        command: environment volk_profile
+        plugs: [home]
 
     front-end-cal:
         command: environment front-end-cal
+        plugs: [home]
 
 parts:
     gnss-sdr:
