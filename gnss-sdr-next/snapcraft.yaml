@@ -95,7 +95,7 @@ parts:
             - libncursesw5
             - libtinfo5
             - libdb5.3
-            - python-mako
-            - python-six
+            - python3-mako
+            - python3-six
             - try:
                 - libzadc1
